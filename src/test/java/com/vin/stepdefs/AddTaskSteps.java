@@ -1,5 +1,7 @@
 package com.vin.stepdefs;
 
+import com.vin.annotation.LazyAutowired;
+import com.vin.ui_layer.pages.ToDoPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,6 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -15,12 +18,13 @@ import java.util.List;
 @CucumberContextConfiguration
 public class AddTaskSteps {
 
+    @LazyAutowired
+    ToDoPage toDoPage;
+
     @Given("user has logged onto the application")
     public void userHasLoggedOntoTheApplication() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://todomvc.com/examples/vue/");
-        driver.quit();
+        toDoPage.goTo();
+        Assert.assertTrue(toDoPage.isAt());
     }
 
     @Given("user todo list is empty")
