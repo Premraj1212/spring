@@ -8,10 +8,11 @@ Todo MVC application under test
 | Category       | Value          |
 | -------------- | ---------------|
 | Language       | Java           | 
-| BuildTool      | Maven          | 
+| Build Tool     | Maven          |
+| Test Tool      | Selenium       | 
 | BDD            | cucumber       | 
 | DI             | Spring         | 
-| TestFramework  | TestNG         | 
+| Test Framework | TestNG         | 
 | Reporting      | cucumber       |
 |Containerization| Docker         |
 
