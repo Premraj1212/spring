@@ -10,8 +10,10 @@ Feature: Add tasks in the application
   Scenario: User adds multiple tasks
     Given user todo list is empty
     When user adds following tasks:
-      |task          |
       |to go for swim|
       |play games    |
       |fly high      |
-    Then user should see all task added to the application
+    Then user should see all task added to the application:
+      |to go for swim|
+      |play games    |
+      |fly high      |
