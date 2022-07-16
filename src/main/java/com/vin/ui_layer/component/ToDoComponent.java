@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Value;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.lang.String.format;
+
 @PageFragment
 public class ToDoComponent extends Base {
     private static final Logger logger = LoggerFactory.getLogger(ToDoComponent.class);
@@ -27,6 +29,9 @@ public class ToDoComponent extends Base {
 
     @FindBy(css = "div[class='view'] label")
     private List<WebElement> toDoListOfItems;
+
+    private String complete_item = "//label[.='%s']/preceding-sibling::input[@type='checkbox']";
+    private String select_status = "//ul[@class='filters']//a[.='%s']";
 
     @Override
     public boolean isAt() {
@@ -42,8 +47,17 @@ public class ToDoComponent extends Base {
 
     public void addItems(String task) {
         logger.info("Adding item :: ", task);
-        //this.wait.until(ExpectedConditions.presenceOfElementLocated())
         newToDoField.sendKeys(task);
         newToDoField.sendKeys(Keys.ENTER);
+    }
+
+    public void makeTaskAsComplete(String task) {
+        By completeItemChk = By.xpath(format(complete_item, task));
+        this.driver.findElement(completeItemChk).click();
+    }
+
+    public void selectStatus(String status) {
+        By selectToDoStatus = By.xpath((format(select_status,status)));
+        this.driver.findElement(selectToDoStatus).click();
     }
 }

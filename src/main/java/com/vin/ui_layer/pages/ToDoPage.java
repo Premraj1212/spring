@@ -1,6 +1,7 @@
 package com.vin.ui_layer.pages;
 
 import com.vin.annotation.Page;
+import com.vin.data_models.TaskStatus;
 import com.vin.helper.RunHelper;
 import com.vin.ui_layer.base.Base;
 import com.vin.ui_layer.component.ToDoComponent;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Page
 public class ToDoPage extends Base {
@@ -46,7 +48,41 @@ public class ToDoPage extends Base {
         );
     }
 
-    public List<String> getCurrentToDoTakeAddedInTheList() {
+    public List<String> getCurrentToDoTaskShownInTheList() {
         return toDoComponent.getToDoListOfItem();
     }
+
+    public void completeItem(String task) {
+        toDoComponent.makeTaskAsComplete(task);
+    }
+
+    public void selectTaskByStatus(String status) {
+        toDoComponent.selectStatus(status);
+    }
+
+
+    public List<String> fetchActiveTask(List<TaskStatus> taskStatuses) {
+        return taskStatuses
+                .stream()
+                .filter(task -> task.getActive() != null)
+                .map(TaskStatus::getActive)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> fetchCompletedTask(List<TaskStatus> taskStatuses) {
+        return taskStatuses
+                .stream()
+                .filter(task -> task.getCompleted() != null)
+                .map(TaskStatus::getCompleted)
+                .collect(Collectors.toList());
+    }
+    public List<String> fetchAllTask(List<TaskStatus> taskStatuses) {
+        return taskStatuses
+                .stream()
+                .filter(task -> task.getAll() != null)
+                .map(TaskStatus::getAll)
+                .collect(Collectors.toList());
+    }
+
+
 }
