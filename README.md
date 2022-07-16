@@ -1,7 +1,7 @@
 # singtel-challenge
 Todo MVC application under test
 
-###A test framework using spring framework 
+### A test framework using spring framework 
 
 ## Stack
 
@@ -75,6 +75,9 @@ Sample screen shot of report for the execution below:
 ### Selenium Grid Test Execution
 
 ![Selenium_Grid_Test_Execution](image/grid_test_execution.PNG)
+
+### Logs
+* Logs generated at target>>logs>> test-execution.log
 
 ### Docker
 Docker setup for selenium grid infrastructure for the test execution
