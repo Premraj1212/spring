@@ -32,6 +32,8 @@ public class ToDoComponent extends Base {
 
     private String complete_item = "//label[.='%s']/preceding-sibling::input[@type='checkbox']";
     private String select_status = "//ul[@class='filters']//a[.='%s']";
+    private String select_task = "//label[.='%s']";
+    private String delete_task = "//label[.='%s']/following-sibling::button";
 
     @Override
     public boolean isAt() {
@@ -59,5 +61,15 @@ public class ToDoComponent extends Base {
     public void selectStatus(String status) {
         By selectToDoStatus = By.xpath((format(select_status,status)));
         this.driver.findElement(selectToDoStatus).click();
+    }
+
+    public void selectTask(String task) {
+        By selectTodoTask = By.xpath((format(select_task,task)));
+        this.driver.findElement(selectTodoTask).click();
+    }
+
+    public void deleteTask(String task) {
+        By deleteTodoTask = By.xpath((format(delete_task,task)));
+        this.driver.findElement(deleteTodoTask).click();
     }
 }

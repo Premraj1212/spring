@@ -41,8 +41,8 @@ public class AddTaskSteps {
         toDoPage.addToDoItemsInTheList(tasks);
     }
 
-    @Then("^user should see all task added to the application:$")
-    public void userShouldSeeAllTaskAddedToTheApplication(List<String> addedTask) {
+    @Then("^user should see all task listed in the application:$")
+    public void userShouldSeeAllTaskListedInTheApplication(List<String> addedTask) {
         logger.info("Actual Result added in APP"+toDoPage.getCurrentToDoTaskShownInTheList());
         logger.info("Expected Result passed to APP"+addedTask);
         Assert.assertEquals(toDoPage.getCurrentToDoTaskShownInTheList(),addedTask);

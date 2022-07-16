@@ -85,4 +85,8 @@ public class ToDoPage extends Base {
     }
 
 
+    public void deleteToDoTask(String task) {
+        toDoComponent.selectTask(task);
+        toDoComponent.deleteTask(task);
+    }
 }

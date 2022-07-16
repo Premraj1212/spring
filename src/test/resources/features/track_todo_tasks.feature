@@ -1,4 +1,4 @@
-@status
+@status @regression @e2e
 Feature: Track tasks in the application
   In order to track my task added in the application
   As a user
