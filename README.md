@@ -1,4 +1,4 @@
-# singtel-challenge
+# Test Framework using Spring
 Todo MVC application under test
 
 ### A test framework using spring framework 
