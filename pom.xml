@@ -29,8 +29,8 @@
     <properties>
         <java.version>11</java.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
-        <selenium.version>3.141.59</selenium.version>
-        <webdrivermanager.version>5.2.0</webdrivermanager.version>
+        <selenium.version>4.11.0</selenium.version>
+        <webdrivermanager.version>5.4.0</webdrivermanager.version>
         <testng.version>7.6.1</testng.version>
         <cucumber.version>7.4.1</cucumber.version>
         <javafaker.version>1.0.2</javafaker.version>
